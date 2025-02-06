@@ -1,0 +1,53 @@
+.root {
+    -fx-background-color: linear-gradient(to bottom, #7D4E92, #FFE0B2);
+    -fx-text-fill: #FFE0B2;
+}
+
+.menu-bar {
+    -fx-background-color: #7D4E92;
+}
+.menu {
+    -fx-text-fill: #FFE0B2;
+}
+.menu-item {
+    -fx-background-color: #E07A29;
+    -fx-text-fill: #C4A3D9;
+}
+.menu-item:hover {
+    -fx-background-color: #FFB067;
+    -fx-text-fill: white;
+}
+
+.scroll-pane, .vbox {
+    -fx-background-color: #3A1C5C;
+}
+
+.label {
+    -fx-text-fill: #FFE0B2;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.button {
+    -fx-background-color: #C4A3D9;
+    -fx-text-fill: #E07A29;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-border-color: #FFB067;
+    -fx-border-width: 2px;
+}
+.button:hover {
+    -fx-background-color: #FFB067;
+    -fx-text-fill: white;
+    -fx-border-color: #FFE0B2;
+}
+
+.custom-toolbar {
+    -fx-background-color: #FFB067;
+    -fx-padding: 5px;
+}
+
+.progress-bar {
+    -fx-accent: #FFB067;
+    -fx-background-color: #3A1C5C;
+}

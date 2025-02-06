@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.media.MediaView?>
+
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" 
+prefWidth="600.0" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller" stylesheets="style.css">
+    
+    <top>
+        <MenuBar>
+            <Menu text="Archivo">
+                <MenuItem text="Abrir" onAction="#abrirArchivo"/>
+                <MenuItem text="Cerrar" onAction="#cerrarApp"/>
+            </Menu>
+            <Menu text="Biblioteca">
+                <MenuItem text="Recargar" onAction="#recargarBiblioteca"/>
+            </Menu>
+            <Menu text="Ver">
+                <MenuItem text="Cambiar tema" onAction="#activarModoOscuro"/>
+            </Menu>
+            <Menu text="Acerca">
+                <MenuItem text="Información" onAction="#mostrarInformacion"/>
+            </Menu>
+        </MenuBar>
+    </top>
+
+    <left>
+        <VBox fx:id="leftPane" spacing="10" prefWidth="200">
+            <Label text="Biblioteca" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+            <TableView fx:id="tablaBiblioteca">
+                <columns>
+                    <TableColumn text="Nombre" fx:id="colNombre"/>
+                    <TableColumn text="Formato" fx:id="colFormato"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </left>
+
+    <right>
+        <VBox fx:id="rightPane" spacing="10" prefWidth="150">
+            <Label text="Edición" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+            <Button text="Cambiar Tamaño" onAction="#cambiarTamano"/>
+            <Button text="Velocidad 0.5x" onAction="#velocidadLenta"/>
+            <Button text="Velocidad 1x" onAction="#velocidadNormal"/>
+            <Button text="Velocidad 2x" onAction="#velocidadRapida"/>
+        </VBox>
+    </right>
+   
+    <center>
+    <VBox alignment="TOP_CENTER">
+
+        <HBox alignment="CENTER" spacing="10">
+            <Button text="&lt;" onAction="#toggleLeftPane"/>
+
+            <Region HBox.hgrow="ALWAYS" /> <!--A veces aparece mas arriba?-->
+
+            <Label fx:id="lblTitulo" text="Reproductor Multimedia" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+              <Region HBox.hgrow="ALWAYS" />
+
+            <Button text="&gt;" onAction="#toggleRightPane"/>
+        </HBox>
+        <StackPane VBox.vgrow="ALWAYS">
+            <MediaView fx:id="mediaView" preserveRatio="true"/>
+            <ImageView fx:id="audioImage" preserveRatio="true" visible="false"/>
+        </StackPane>
+    </VBox>
+</center>
+
+    <bottom>
+        <VBox alignment="BOTTOM_CENTER">
+            <ProgressBar fx:id="progressBar" prefWidth="500" />
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="Play" onAction="#play"/>
+                <Button text="Pausa" onAction="#pausa"/>
+                <Button text="Stop" onAction="#stop"/>
+            </HBox>
+        </VBox>
+    </bottom>
+
+</BorderPane>
