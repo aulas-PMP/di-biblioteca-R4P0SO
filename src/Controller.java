@@ -162,7 +162,19 @@ private void selectMedia() {
             if (selectedFile.getName().endsWith(".wav")||selectedFile.getName().endsWith(".mp3")) {
                 mediaView.setVisible(false);
                 audioImage.setVisible(true);
-                audioImage.setImage(new Image("file:src/recursos/desesperacion.jpg"));
+                String imagePath = "file:src/recursos/" + getFileName(selectedFile) + ".jpg";
+        try {
+            File imageFile = new File("src/recursos/" + getFileName(selectedFile) + ".jpg");
+                    if (imageFile.exists()) {
+                        audioImage.setImage(new Image(imagePath));
+                    } else {
+                        throw new Exception("Imagen no encontrada");
+                    }
+                } catch (Exception e) {
+                    mostrarDialogoModal("Imagen no encontrada", "No se ha encontrado: src/recursos/"+ getFileName(selectedFile) + ".jpg \nCargando imagen por defecto");
+                    audioImage.setImage(new Image("file:src/recursos/desesperacion.jpg"));
+                }
+                
             } else {
                 mediaView.setVisible(true);
                 audioImage.setVisible(false);
